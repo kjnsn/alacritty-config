@@ -1,25 +1,43 @@
-import { Number, Toggle } from "./Components"
-import { AlacrittyConfig } from "./model"
+import { NumberField, StringField, Toggle } from "./Components";
+import { AlacrittyConfig } from "./model";
 
+type ConfigurationProps = {
+  config: AlacrittyConfig;
+  setConfig: (c: AlacrittyConfig) => void;
+};
 
-type ConfigurationProps = { config: AlacrittyConfig, setConfig: (c: AlacrittyConfig) => void }
+export default function Configuration({
+  config,
+  setConfig,
+}: ConfigurationProps) {
+  const sectionHeading = "text-2xl mb-2";
 
-
-export default function Configuration({ config, setConfig }: ConfigurationProps) {
   return (
     <>
+      <h2 className={sectionHeading}>General</h2>
       <Toggle
         label="Live Reload"
         enabled={config.live_config_reload ?? false}
-        setEnabled={e => setConfig({ ...config, live_config_reload: e })} />
+        setEnabled={(e) => setConfig({ ...config, live_config_reload: e })}
+      />
 
-      <Number
+      <StringField
+        label="Shell"
+        defaultValue=""
+        value={config.shell?.toString()}
+        setValue={(e) => setConfig({ ...config, shell: e })}
+      />
+
+      <h2 className={sectionHeading}>Colors</h2>
+
+      <h2 className={sectionHeading}>Scrolling</h2>
+
+      <NumberField
         label="Scroll History Buffer"
         defaultValue={10_000}
         value={config.scrolling?.history}
-        setValue={e => setConfig({ ...config, scrolling: { history: e } })}
+        setValue={(e) => setConfig({ ...config, scrolling: { history: e } })}
       />
     </>
-  )
+  );
 }
-
