@@ -1,5 +1,24 @@
+import { ChangeEvent, useId } from 'react';
 import theme from './colors';
 
+export function Number({ label, defaultValue, value, setValue }
+  : { label: string, defaultValue: number, value?: number, setValue: (arg0: number) => void }) {
+  const numberId = useId();
+
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    setValue(parseInt(e.target.value));
+  }
+
+  return (
+    <form className='max-w-sm mx-auto'>
+      <label id={numberId}>{label}</label>
+      <input
+        aria-describedby={numberId} type='number'
+        value={value ?? defaultValue} placeholder={defaultValue.toString()}
+        onChange={handleChange} />
+    </form>
+  )
+}
 
 export function Toggle({ label, enabled, setEnabled }: { label: string, enabled: boolean, setEnabled: (arg0: boolean) => void }) {
   const checkColors = 'peer-focus:ring-violet-300 dark:peer-focus:ring-violet-800 ';

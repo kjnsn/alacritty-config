@@ -1,4 +1,4 @@
-import { Toggle } from "./Components"
+import { Number, Toggle } from "./Components"
 import { AlacrittyConfig } from "./model"
 
 
@@ -11,7 +11,15 @@ export default function Configuration({ config, setConfig }: ConfigurationProps)
       <Toggle
         label="Live Reload"
         enabled={config.live_config_reload ?? false}
-        setEnabled={e => setConfig({ live_config_reload: e })} />
+        setEnabled={e => setConfig({ ...config, live_config_reload: e })} />
+
+      <Number
+        label="Scroll History Buffer"
+        defaultValue={10_000}
+        value={config.scrolling?.history}
+        setValue={e => setConfig({ ...config, scrolling: { history: e } })}
+      />
     </>
   )
 }
+

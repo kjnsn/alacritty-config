@@ -1,5 +1,7 @@
 export type Scrolling = {
+  // default: 10_000
   history?: number;
+  // default: 3
   multiplier?: number;
 }
 export type Cursor = {
@@ -8,8 +10,19 @@ export type Cursor = {
 export type Selection = {
   save_to_clipboard?: boolean;
 }
+
+export type FontSelector = {
+  family: string;
+  style: string;
+}
 export type Font = {
   builtin_box_drawing?: boolean;
+  normal?: FontSelector;
+  bold?: FontSelector;
+  italic?: FontSelector;
+  bold_italic?: FontSelector;
+  // default: 11.25
+  size?: number;
 }
 export type Window = {
   dynamic_padding?: boolean;
