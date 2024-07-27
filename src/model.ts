@@ -2,13 +2,41 @@ export type Scrolling = {
   history?: number;
   multiplier?: number;
 }
-export type Cursor = {}
-export type Selection = {}
-export type Font = {}
-export type Window = {}
-export type Mouse = {}
-export type Debug = {}
-export type Colors = {}
+export type Cursor = {
+  unfocused_hollow?: boolean;
+}
+export type Selection = {
+  save_to_clipboard?: boolean;
+}
+export type Font = {
+  builtin_box_drawing?: boolean;
+}
+export type Window = {
+  dynamic_padding?: boolean;
+  blur?: boolean;
+  dynamic_title?: boolean;
+  resize_increments?: boolean;
+}
+export type Mouse = {
+  // default: false
+  hide_when_typing?: boolean;
+}
+export type Debug = {
+  // default: false
+  render_timer?: boolean;
+  // default: false
+  persistent_logging?: boolean;
+  // default: false
+  print_events?: boolean;
+  // default: false
+  highlight_damage?: boolean;
+  // default: false
+  prefer_egl?: boolean;
+}
+export type Colors = {
+  transparent_background_colors?: boolean;
+  draw_bold_text_with_bright_colors?: boolean;
+}
 export type Terminal = {}
 export type Shell = {}
 export type Bell = {}
