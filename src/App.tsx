@@ -1,34 +1,24 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Configuration from './Configuration'
+import { AlacrittyConfig } from './model'
+import { stringify } from 'smol-toml';
+import theme from './colors';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [config, setConfig] = useState<AlacrittyConfig>({});
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className={theme.surface + theme.text_on_surface + ' pt-6 px-3 min-h-screen'}>
+      <Configuration
+        config={config}
+        setConfig={c => setConfig(c)} />
+
+      <div className={theme.surface_container + ' mt-5 p-3'}>
+        <code className={theme.text_on_surface_container}>
+          {stringify(config)}
+        </code>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 

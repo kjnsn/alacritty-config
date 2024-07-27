@@ -26,7 +26,7 @@ export type AlacrittyConfig = {
   colors?: Colors;
   terminal?: Terminal;
   shell?: string | Shell;
-  live_config_reload?: Boolean;
+  live_config_reload?: boolean;
   working_directory?: string;
 }
 
