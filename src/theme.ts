@@ -1,3 +1,8 @@
+type Token = {
+  text: string;
+  background: string;
+};
+/*
 class Token {
   readonly light: string;
   readonly dark: string;
@@ -6,27 +11,56 @@ class Token {
   readonly text: string;
   readonly background: string;
 
-  constructor(light: string, dark: string) {
+  constructor(text: string, dark: string) {
     this.light = light;
     this.dark = dark;
 
     this.text = ` text-${light} dark:text-${dark} `;
     this.background = ` bg-${light} dark:bg-${dark} `;
   }
-}
+}*/
 
 // Sticks to the "neutral" pallete mostly.
 // Color roles are based on material 3: https://m3.material.io/styles/color/roles
-export default {
+interface Theme {
+  [tokenName: string]: Token;
+}
+const theme: Theme = {
   // Primary
-  primary: new Token("sky-800", "sky-300"),
-  on_primary: new Token("neutral-50", "neutral-500"),
-  primary_container: new Token("sky-200", "neutral-700"),
-  on_primary_container: new Token("sky-950", "neutral-200"),
+  primary: {
+    text: " text-sky-800 dark:text-sky-300 ",
+    background: " bg-sky-800 dark:bg-sky-300 ",
+  },
+  on_primary: {
+    text: " text-neutral-50 dark:text-sky-900 ",
+    background: " bg-neutral-50 dark:bg-sky-900 ",
+  },
+  primary_container: {
+    text: " text-sky-200 dark:text-neutral-700 ",
+    background: " ",
+  },
+  on_primary_container: {
+    text: " text-sky-950 dark:text-neutral-200 ",
+    background: " ",
+  },
 
   // Surface
-  surface: new Token("neutral-50", "neutral-900"),
-  on_surface: new Token("neutral-900", "neutral-300"),
-  surface_container: new Token("neutral-100", "neutral-800"),
-  on_surface_container: new Token("neutral-800", "neutral-100"),
+  surface: {
+    text: " text-neutral-50 dark:text-neutral-900 ",
+    background: " bg-neutral-50 dark:bg-neutral-900 ",
+  },
+  on_surface: {
+    text: " text-neutral-900 dark:text-neutral-300 ",
+    background: " ",
+  },
+  surface_container: {
+    text: " text-neutral-100 dark:text-neutral-800 ",
+    background: " bg-neutral-100 dark:bg-neutral-800 ",
+  },
+  on_surface_container: {
+    text: " text-neutral-800 dark:text-neutral-100 ",
+    background: " ",
+  },
 };
+
+export default theme;
