@@ -2,7 +2,7 @@ import { useState } from "react";
 import Configuration from "./Configuration";
 import { AlacrittyConfig } from "./model";
 import { stringify } from "smol-toml";
-import theme from "./colors";
+import theme from "./theme";
 
 function App() {
   const [config, setConfig] = useState<AlacrittyConfig>({});
@@ -10,7 +10,9 @@ function App() {
   return (
     <div
       className={
-        theme.surface + theme.text_on_surface + " pt-6 px-3 min-h-screen"
+        theme.surface.background +
+        theme.text_on_surface +
+        " pt-6 px-3 min-h-screen"
       }
     >
       <Configuration config={config} setConfig={(c) => setConfig(c)} />

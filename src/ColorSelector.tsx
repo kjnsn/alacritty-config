@@ -1,4 +1,5 @@
 import { useState } from "react";
+import appTheme from "./theme";
 
 type Pallete = {
   black: string;
@@ -68,21 +69,38 @@ const THEMES = [DEFAULT_THEME];
 
 function ThemeChip({
   theme,
+  selected,
   onSelect,
 }: {
   theme: ColorTheme;
+  selected: boolean;
   onSelect: () => void;
 }) {
-  return <></>;
+  const selectedClasses: string[] = selected
+    ? [appTheme.primary.background, appTheme.text_on_primary]
+    : [appTheme.surface_container, appTheme.text_on_surface_container];
+  const classes: string[] = ["rounded"].concat(selectedClasses);
+  return (
+    <>
+      <button className={classes.join(" ")} onChange={onSelect}>
+        {theme.name}
+      </button>
+    </>
+  );
 }
 
 export default function ColorSelector() {
-  const [theme, setTheme] = useState(DEFAULT_THEME);
+  const [currentTheme, setTheme] = useState(DEFAULT_THEME);
 
   return (
     <>
       {THEMES.map((theme) => (
-        <ThemeChip theme={theme} onSelect={() => setTheme(theme)} />
+        <ThemeChip
+          key={theme.name}
+          theme={theme}
+          selected={theme == currentTheme}
+          onSelect={() => setTheme(theme)}
+        />
       ))}
     </>
   );

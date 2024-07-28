@@ -1,3 +1,4 @@
+import ColorSelector from "./ColorSelector";
 import { NumberField, StringField, Toggle } from "./Components";
 import { AlacrittyConfig } from "./model";
 
@@ -29,6 +30,8 @@ export default function Configuration({
       />
 
       <h2 className={sectionHeading}>Colors</h2>
+
+      <ColorSelector />
 
       <h2 className={sectionHeading}>Scrolling</h2>
 
