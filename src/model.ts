@@ -52,9 +52,13 @@ export type Colors = {
   transparent_background_colors?: boolean;
   draw_bold_text_with_bright_colors?: boolean;
 } & ColorScheme;
-export type Terminal = {};
-export type Shell = {};
-export type Bell = {};
+export type Terminal = {
+  osc52?: string;
+};
+export type Shell = { program: string; args: string[] };
+export type Bell = {
+  color?: string;
+};
 
 /** Defines a data structure that holds a configuration for alacritty. */
 export type AlacrittyConfig = {

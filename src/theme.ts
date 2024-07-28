@@ -36,8 +36,8 @@ const theme: Theme = {
     background: " bg-neutral-50 dark:bg-sky-900 ",
   },
   primary_container: {
-    text: " text-sky-200 dark:text-neutral-700 ",
-    background: " ",
+    text: " text-slate-200 dark:text-slate-700 ",
+    background: " bg-slate-200 dark:bg-slate-700 ",
   },
   on_primary_container: {
     text: " text-sky-950 dark:text-neutral-200 ",
@@ -55,7 +55,7 @@ const theme: Theme = {
   },
   surface_container: {
     text: " text-neutral-100 dark:text-neutral-800 ",
-    background: " bg-neutral-100 dark:bg-neutral-800 ",
+    background: " bg-neutral-200 dark:bg-neutral-800 ",
   },
   on_surface_container: {
     text: " text-neutral-800 dark:text-neutral-100 ",

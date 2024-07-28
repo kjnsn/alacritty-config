@@ -19,10 +19,9 @@ function ThemeChip({
           appTheme.on_surface_container.text,
         ];
 
-    return ["rounded p-2"].concat(selectedClasses);
+    return ["rounded p-2 mx-3"].concat(selectedClasses);
   }
 
-  console.log(themeName);
   return (
     <>
       <button className={classes().join(" ")} onClick={onSelect}>
@@ -39,7 +38,7 @@ export default function ColorSelector({
   currentScheme?: ColorScheme;
   setColorScheme: (arg0: ColorScheme) => void;
 }) {
-  var chips: JSX.Element[] = [];
+  const chips: JSX.Element[] = [];
   THEMES.forEach((scheme, name) => {
     chips.push(
       <ThemeChip

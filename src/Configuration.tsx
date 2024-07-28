@@ -37,7 +37,7 @@ export default function Configuration({
         setColorScheme={(s: ColorScheme) => setConfig({ ...config, colors: s })}
       />
 
-      <h2 className={sectionHeading}>Scrolling</h2>
+      <h2 className={sectionHeading + " mt-3"}>Scrolling</h2>
 
       <NumberField
         label="Scroll History Buffer"
