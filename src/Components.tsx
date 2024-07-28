@@ -1,5 +1,5 @@
 import { ChangeEvent, useId } from "react";
-import theme from "./colors";
+import theme from "./theme";
 
 export function StringField({
   label,
@@ -18,14 +18,14 @@ export function StringField({
     <form className="m-3">
       <label
         id={labelId}
-        className={theme.text_on_surface + "px-2 text-lg font-medium"}
+        className={theme.on_surface.text + "px-2 text-lg font-medium"}
       >
         {label}
       </label>
       <input
         className={
-          theme.primary_container +
-          theme.text_on_primary_container +
+          theme.primary_container.background +
+          theme.on_primary_container.text +
           "p-1 rounded-sm"
         }
         aria-describedby={labelId}
@@ -59,14 +59,14 @@ export function NumberField({
     <form className="mx-3">
       <label
         id={numberId}
-        className={theme.text_on_surface + "px-2 text-lg font-medium"}
+        className={theme.on_surface.text + "px-2 text-lg font-medium"}
       >
         {label}
       </label>
       <input
         className={
-          theme.primary_container +
-          theme.text_on_primary_container +
+          theme.primary_container.background +
+          theme.on_primary_container.text +
           "p-1 rounded-sm"
         }
         aria-describedby={numberId}
@@ -93,7 +93,7 @@ export function Toggle({
 
   return (
     <label className="inline-flex items-center cursor-pointer mx-3">
-      <span className={"px-2 text-lg font-medium" + theme.text_on_surface}>
+      <span className={"px-2 text-lg font-medium" + theme.on_surface.text}>
         {label}
       </span>
       <input

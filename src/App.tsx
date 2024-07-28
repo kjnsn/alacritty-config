@@ -11,14 +11,14 @@ function App() {
     <div
       className={
         theme.surface.background +
-        theme.text_on_surface +
+        theme.on_surface.text +
         " pt-6 px-3 min-h-screen"
       }
     >
       <Configuration config={config} setConfig={(c) => setConfig(c)} />
 
-      <div className={theme.surface_container + " mt-5 p-3"}>
-        <code className={theme.text_on_surface_container}>
+      <div className={theme.surface_container.background + " mt-5 p-3"}>
+        <code className={theme.on_surface_container.text}>
           <pre>{stringify(config)}</pre>
         </code>
       </div>

@@ -77,8 +77,11 @@ function ThemeChip({
   onSelect: () => void;
 }) {
   const selectedClasses: string[] = selected
-    ? [appTheme.primary.background, appTheme.text_on_primary]
-    : [appTheme.surface_container, appTheme.text_on_surface_container];
+    ? [appTheme.primary.background, appTheme.on_primary.text]
+    : [
+        appTheme.surface_container.background,
+        appTheme.on_surface_container.text,
+      ];
   const classes: string[] = ["rounded"].concat(selectedClasses);
   return (
     <>
