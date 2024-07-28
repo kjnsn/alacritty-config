@@ -17,7 +17,7 @@ export function StringField({
   return (
     <form className="m-3">
       <label
-        id={labelId}
+        htmlFor={labelId}
         className={theme.on_surface.text + "px-2 text-lg font-medium"}
       >
         {label}
@@ -28,7 +28,7 @@ export function StringField({
           theme.on_primary_container.text +
           "p-1 rounded-sm"
         }
-        aria-describedby={labelId}
+        id={labelId}
         type="text"
         value={value ?? defaultValue}
         placeholder={defaultValue}
@@ -49,7 +49,7 @@ export function NumberField({
   value?: number;
   setValue: (arg0: number) => void;
 }) {
-  const numberId = useId();
+  const labelId = useId();
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     setValue(parseInt(e.target.value));
@@ -58,7 +58,7 @@ export function NumberField({
   return (
     <form className="mx-3">
       <label
-        id={numberId}
+        htmlFor={labelId}
         className={theme.on_surface.text + "px-2 text-lg font-medium"}
       >
         {label}
@@ -69,7 +69,7 @@ export function NumberField({
           theme.on_primary_container.text +
           "p-1 rounded-sm"
         }
-        aria-describedby={numberId}
+        id={labelId}
         type="number"
         value={value ?? defaultValue}
         placeholder={defaultValue.toString()}
