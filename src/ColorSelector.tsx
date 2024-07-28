@@ -2,7 +2,6 @@ import appTheme from "./theme";
 import { ColorScheme, THEMES } from "./color_schemes";
 
 function ThemeChip({
-  theme,
   themeName,
   selected,
   onSelect,
