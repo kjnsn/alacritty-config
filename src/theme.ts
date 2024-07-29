@@ -2,23 +2,6 @@ type Token = {
   text: string;
   background: string;
 };
-/*
-class Token {
-  readonly light: string;
-  readonly dark: string;
-
-  // Derived properties.
-  readonly text: string;
-  readonly background: string;
-
-  constructor(text: string, dark: string) {
-    this.light = light;
-    this.dark = dark;
-
-    this.text = ` text-${light} dark:text-${dark} `;
-    this.background = ` bg-${light} dark:bg-${dark} `;
-  }
-}*/
 
 // Sticks to the "neutral" pallete mostly.
 // Color roles are based on material 3: https://m3.material.io/styles/color/roles
