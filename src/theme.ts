@@ -11,37 +11,44 @@ interface Theme {
 const theme: Theme = {
   // Primary
   primary: {
-    text: " text-sky-800 dark:text-sky-300 ",
-    background: " bg-sky-800 dark:bg-sky-300 ",
+    // lavender
+    text: " text-[#4c4f69] dark:text-[#b7bdf8] ",
+    background: " bg-[#7287fd] dark:bg-[#b7bdf8] ",
   },
   on_primary: {
-    text: " text-neutral-50 dark:text-sky-900 ",
-    background: " bg-neutral-50 dark:bg-sky-900 ",
+    // base
+    text: " text-[#eff1f5] dark:text-[#24273a] ",
+    background: " bg-neutral-50 dark:bg-[#24273a] ",
   },
   primary_container: {
-    text: " text-slate-200 dark:text-slate-700 ",
-    background: " bg-slate-200 dark:bg-slate-700 ",
+    // mantle
+    text: " text-[#e6e9ef] dark:text-[#1e2030] ",
+    background: " bg-[#e6e9ef] dark:bg-[#1e2030] ",
   },
   on_primary_container: {
-    text: " text-sky-950 dark:text-neutral-200 ",
+    // subtext1
+    text: " text-[#5c5f77] dark:text-[#b8c0e0] ",
     background: " ",
   },
 
   // Surface
   surface: {
-    text: " text-neutral-50 dark:text-neutral-900 ",
-    background: " bg-neutral-50 dark:bg-neutral-900 ",
+    text: " text-[#eff1f5] dark:text-[#24273a] ",
+    background: " bg-[#eff1f5] dark:bg-[#24273a] ",
   },
   on_surface: {
-    text: " text-neutral-900 dark:text-neutral-300 ",
+    // text
+    text: " text-[#4c4f69] dark:text-[#cad3f5] ",
     background: " ",
   },
   surface_container: {
-    text: " text-neutral-100 dark:text-neutral-800 ",
-    background: " bg-neutral-200 dark:bg-neutral-800 ",
+    // crust
+    text: " text-[#dce0e8] dark:text-[#181926] ",
+    background: " bg-[#dce0e8] dark:bg-[#181926] ",
   },
   on_surface_container: {
-    text: " text-neutral-800 dark:text-neutral-100 ",
+    // subtext1
+    text: " text-[#5c5f77] dark:text-[#b8c0e0] ",
     background: " ",
   },
 };
