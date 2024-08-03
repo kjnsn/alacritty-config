@@ -4,7 +4,7 @@ import { AlacrittyConfig } from "./model";
 import { stringify } from "smol-toml";
 import theme from "./theme";
 
-const STORAGE_KEY = "alacritty_config";
+export const STORAGE_KEY = "alacritty_config";
 
 function storageAvailable(): boolean {
   let storage: Storage | undefined;
