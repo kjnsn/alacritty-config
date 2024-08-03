@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import Configuration from "./Configuration";
 import { AlacrittyConfig } from "./model";
 import { stringify } from "smol-toml";
@@ -28,11 +28,11 @@ function storageAvailable(): boolean {
 function App() {
   const isLocalStorageAvailable = useCallback(storageAvailable, []);
 
-  const [config, setConfig] = useState<AlacrittyConfig>(() => {
+  const [config, setConfig] = useState<AlacrittyConfig>((): AlacrittyConfig => {
     if (isLocalStorageAvailable()) {
       const storedValue = window.localStorage.getItem(STORAGE_KEY);
       if (storedValue == null) {
-        return;
+        return {};
       }
       // Just parse and hope for the best. Ideally there would be some error handling here.
       return JSON.parse(storedValue);
@@ -41,11 +41,21 @@ function App() {
   });
 
   function updateConfiguration(newConfig: AlacrittyConfig) {
-    if (isLocalStorageAvailable()) {
+    if (isLocalStorageAvailable() && typeof newConfig === "object") {
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify(newConfig));
     }
     setConfig(newConfig);
   }
+
+  const stringifiedConfig: string = useMemo((): string => {
+    try {
+      return stringify(config);
+    } catch (err) {
+      console.error(err);
+    }
+
+    return "";
+  }, [config]);
 
   return (
     <div
@@ -59,7 +69,7 @@ function App() {
 
       <div className={theme.surface_container.background + " mt-5 p-3"}>
         <code className={theme.on_surface_container.text}>
-          <pre>{stringify(config)}</pre>
+          <pre>{stringifiedConfig}</pre>
         </code>
       </div>
     </div>
